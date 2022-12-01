@@ -4,7 +4,7 @@ ASP.NET Core Web Proxy
 
 Let's say... *in the real world*, you will not have *always* a direct TCP link from your client machine to your enterprise server.   
 
-Even though, it's a good practice to protect you database server behing a web api.    
+Even though, it's a good practice to protect you database server behind a web api.    
 That's why we will use a *sync web proxy*, and we will expose our server to sync, through a web api.   
 
 Here is the overall architecture:
@@ -41,12 +41,12 @@ Server side
 .. note:: We will start from the `Hello sync sample <https://github.com/Mimetis/Dotmim.Sync/tree/master/Samples/HelloSync>`_  sample and will migrate it to the web architecture.   
 
 
-Once your **ASP.NET** application is created, we're adding the specific web server package and our server provider:
+Once your **ASP.NET** application is created, we add the specific web server package and our server provider:
 
 * ``Dotmim.Sync.Web.Server``: This package will allow us to expose everything we need, through a **.Net core Web API**
 * ``Dotmim.Sync.SqlServer.ChangeTracking``: This package will allow us to communicate with the SQL Server database.
 
-Once we have added these **DMS** packages to our project, we are configuring the Sync provider in the ``Startup`` class, thanks to Dependency Injection.
+Once we have added these **DMS** packages to our project, we configure the Sync provider in the ``Startup`` class, thanks to Dependency Injection.
 
 | Be careful, some services are required, but not part of **DMS** (like ``.AddDistributedMemoryCache()`` and ``.AddSession()`` for instance.)
 | Do not forget to add the session middleware as well ( ``app.UseSession();`` )
@@ -295,7 +295,7 @@ The client side is pretty similar to the starter sample, except we will have to 
     Console.WriteLine("End");
 
 
-Now we can launch both application, The Web Api on one side, and the Console application on the other side.   
+Now we can launch both applications, The Web Api on one side, and the Console application on the other side.   
 Just hit Enter and get the results from your synchronization over http.
 
 .. image:: assets/WebSync01.png
